@@ -5,25 +5,40 @@ import { useWalletStore } from "@/stores/wallet";
 import { storeToRefs } from "pinia";
 
 const store = useWalletStore();
-const { totalCredit } = storeToRefs(store);
-const { addToCredit } = store
+const { addToCredit, addToDebit } = store;
 
 const formDisplay = ref<string>("");
+
+const date = new Date().toLocaleString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+});
 
 const operation: item = reactive({
   desc: "",
   amount: 0,
+  date: date
 });
 
 const addToCreditHandler = () => {
-  addToCredit({...operation})
+  addToCredit({ ...operation });
   operation.desc = "";
   operation.amount = 0;
 };
+
+const addToDebitHandler = () => {
+  addToDebit({ ...operation });
+  operation.desc = "";
+  operation.amount = 0;
+};
+
 </script>
 
 <template>
-    <p>{{ totalCredit }}</p>
   <select v-model="formDisplay" name="" id="">
     <option value="add">Add</option>
     <option value="withdraw">Withdraw</option>
@@ -34,6 +49,7 @@ const addToCreditHandler = () => {
       <div>
         <label for="add"></label>
         <textarea
+        maxlength="50"
           v-model="operation.desc"
           name="add"
           id="add"
@@ -47,17 +63,23 @@ const addToCreditHandler = () => {
       </div>
       <button>Add</button>
     </form>
-    
   </div>
   <div v-if="formDisplay === 'withdraw'">
-    <form action="#" @submit.prevent="addToDebit">
+    <form action="#" @submit.prevent="addToDebitHandler">
       <div>
         <label for="withdraw"></label>
-        <textarea name="withdraw" id="withdraw" cols="30" rows="10"></textarea>
+        <textarea
+        maxlength="50"
+          v-model="operation.desc"
+          name="withdraw"
+          id="withdraw"
+          cols="30"
+          rows="10"
+        ></textarea>
       </div>
       <div>
         <label for="withdraw"></label>
-        <input type="text" id="withdraw" />
+        <input v-model="operation.amount" type="number" id="withdraw" />
       </div>
       <button>Withdraw</button>
     </form>

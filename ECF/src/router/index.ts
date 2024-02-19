@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import MyForm from '@/components/MyForm.vue'
+import HistoryDisplay from '@/components/HistoryDisplay.vue'
 import HomePage from '@/components/HomePage.vue'
 
 const router = createRouter({
@@ -6,10 +8,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomePage
     },
-    
+    {
+      path: '/add',
+      name: 'form',
+      component: MyForm
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: HistoryDisplay
+    }
   ]
 })
 

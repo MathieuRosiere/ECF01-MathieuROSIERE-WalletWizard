@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import MyForm from './components/MyForm.vue';
+import { RouterLink, RouterView } from 'vue-router';
 
 
 </script>
 
 <template>
-  <MyForm/>
+  <router-link to="/add">Operations</router-link>
+  <router-link to="/history"> | History</router-link>
+  <router-view></router-view>
 </template>
 
 <style scoped>
