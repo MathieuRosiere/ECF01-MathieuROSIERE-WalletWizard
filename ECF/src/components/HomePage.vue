@@ -7,7 +7,15 @@ const { currentBalance } = storeToRefs(store)
 </script>
 
 <template>
-    <p>{{ currentBalance }}</p>
+    <p class="p-balance" >Your current balance is {{ currentBalance }} €</p>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.p-balance {
+  display: grid;
+  place-content: center;
+  font-size: 2.5rem;
+}
+
+</style>

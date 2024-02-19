@@ -13,7 +13,7 @@ const router = createRouter({
     },
     {
       path: '/add',
-      name: 'form',
+      name: 'myForm',
       component: MyForm
     },
     {
