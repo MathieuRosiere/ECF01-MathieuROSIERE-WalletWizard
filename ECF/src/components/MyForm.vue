@@ -38,14 +38,14 @@ const addToDebitHandler = () => {
 
 <template>
   <div class="form-display">
-    <div class="select">
+    
       <label for="operation">Choose your operation :</label>
       <select v-model="formDisplay" name="" id="operation">
-        <option value="">Select an option :</option>
+        <option value="" hidden>Select an option :</option>
         <option value="add">Add</option>
         <option value="withdraw">Withdraw</option>
       </select>
-    </div>
+    
     <div class="form" v-if="formDisplay === 'add'">
       <form action="#" @submit.prevent="addToCreditHandler">
         <label for="add">Description :</label>
@@ -56,9 +56,10 @@ const addToDebitHandler = () => {
           id="add"
           cols="30"
           rows="3"
+          required
         ></textarea>
         <label for="add">Amount :</label>
-        <input type="number" id="add" v-model.number="operation.amount" />
+        <input type="number" id="add" v-model.number="operation.amount" required />
         <button>Add</button>
       </form>
     </div>
@@ -72,9 +73,10 @@ const addToDebitHandler = () => {
           id="withdraw"
           cols="30"
           rows="3"
+          required
         ></textarea>
         <label for="withdraw">Amount :</label>
-        <input v-model="operation.amount" type="number" id="withdraw" />
+        <input v-model="operation.amount" type="number" id="withdraw" required/>
         <button>Withdraw</button>
       </form>
     </div>
@@ -88,12 +90,6 @@ const addToDebitHandler = () => {
   align-items: center;
 }
 
-div.select {
-  font-size: 2rem;
-  option {
-    font-size: 1.2rem;
-  }
-}
 
 div.form {
   width: 50%;
@@ -116,10 +112,5 @@ textarea {
   font-size: 1.3rem;
 }
 
-button {
-  width: 100px;
-  padding: 5px;
-  font-size: 1.5rem;
-  margin-top: 15px;
-}
+
 </style>

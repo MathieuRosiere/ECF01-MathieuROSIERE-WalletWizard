@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: monospace;
+    color: #ffffff;
 }
 
 body {
@@ -17,6 +18,28 @@ div#app {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+    background-color: #0b0505;
     
 }
 
+label {
+    font-size: 2rem;
+}
+
+select {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color:  #0b0505;
+}
+
+option {
+    color: #0b0505;
+    font-size: 1.3rem;
+}
+
+button {
+    width: 100px;
+    padding: 5px;
+    font-size: 1.5rem;
+    margin-top: 15px;
+}

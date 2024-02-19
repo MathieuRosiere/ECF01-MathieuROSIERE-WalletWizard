@@ -5,40 +5,47 @@ import { ref } from "vue";
 import { onMounted } from "vue";
 
 const store = useWalletStore();
-const { credit, debit } =
-  storeToRefs(store);
+const { credit, debit } = storeToRefs(store);
 
 onMounted(() => {
-  const creditInStorage = JSON.parse(localStorage.getItem("creditTab"))
-  console.log(creditInStorage);
-  // credit.value.desc = creditInStorage.value.desc;
-  // credit.value.amount =
-  credit.value = creditInStorage
-  
-}) 
+  const creditInStorage = JSON.parse(localStorage.getItem("creditTab"));
+  if (creditInStorage != null) {
+  credit.value = creditInStorage;}
+
+  const debitInStorage = JSON.parse(localStorage.getItem("debitTab"));
+  if (debitInStorage != null) {
+  debit.value = debitInStorage;}
+});
 
 const displayMode = ref<string>("");
 </script>
 
 <template>
   <div class="display">
-    <label for="display">Choose :</label>
+    <label class="font-size" for="display">Choose History :</label>
     <select v-model="displayMode" name="display" id="display">
+      <option value="" hidden>Select an Option :</option>
       <option value="credit">Show credit history</option>
       <option value="debit">Show debit history</option>
     </select>
     <template v-if="displayMode === 'credit'">
       <div v-for="c in credit">
-        <p>{{ c.amount }} €</p>
-        <p>{{ c.desc }}</p>
+        <p class="font-bold">Date :</p>
         <p>{{ c.date }}</p>
+        <p class="font-bold">Amount :</p>
+        <p>{{ c.amount }} €</p>
+        <p class="font-bold">Description :</p>
+        <p>{{ c.desc }}</p>
       </div>
     </template>
     <template v-if="displayMode === 'debit'">
       <div v-for="d in debit">
-        <p>{{ d.amount }} €</p>
-        <p>{{ d.desc }}</p>
+        <p class="font-bold">Date :</p>
         <p>{{ d.date }}</p>
+        <p class="font-bold">Amount :</p>
+        <p>{{ d.amount }} €</p>
+        <p class="font-bold">Description :</p>
+        <p>{{ d.desc }}</p>
       </div>
     </template>
   </div>
@@ -46,5 +53,22 @@ const displayMode = ref<string>("");
 
 <style scoped>
 .display {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
+
+p {
+  font-size: 1.3rem;
+  display: inline;
+}
+
+.font-bold {
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+
+
+
 </style>

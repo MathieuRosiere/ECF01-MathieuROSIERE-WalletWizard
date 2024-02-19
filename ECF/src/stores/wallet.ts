@@ -31,6 +31,7 @@ export const useWalletStore = defineStore("wallet", () => {
 
   const addToDebit = (obj: item) => {
     debit.value.push(obj);
+    localStorage.setItem("debitTab", JSON.stringify(debit.value));
   };
 
   return {
