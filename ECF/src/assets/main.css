@@ -1,45 +1,66 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
-    color: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  color: #ffffff;
 }
 
 body {
-    height: 100dvh;
-    width:100dvw;
+  height: 100dvh;
+  width: 100dvw;
 }
 
 div#app {
-    height: 100%;
-    width:100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0b0505;
-    
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b0505;
 }
 
 label {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 select {
-    margin-bottom: 15px;
-    font-size: 2rem;
-    color:  #0b0505;
+  margin-bottom: 15px;
+  font-size: 2rem;
+  color: #0b0505;
+  cursor: pointer;
 }
 
 option {
-    color: #0b0505;
-    font-size: 1.3rem;
+  color: #0b0505;
+  font-size: 1.3rem;
 }
 
 button {
-    width: 100px;
-    padding: 5px;
-    font-size: 1.5rem;
-    margin-top: 15px;
+  width: 100px;
+  padding: 5px;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #0b0505;
+  transition: ease 400ms;
+  border: 2px solid;
+  border-radius: 15px 0 15px 0;
+}
+
+button:hover {
+  width: 115px;
+  padding: 5px;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #ffffff;
+  background-color: #e32525;
+  border: 2px solid #ffffff;
+}
+
+input,
+textarea {
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  color: #0b0505;
 }

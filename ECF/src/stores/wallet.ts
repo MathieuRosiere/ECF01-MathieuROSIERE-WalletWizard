@@ -4,7 +4,6 @@ import type { item } from "@/catalog/type";
 
 export const useWalletStore = defineStore("wallet", () => {
   // Refs
-  const wallet = ref<item[]>([]);
   const credit = ref<item[]>([]);
   const debit = ref<item[]>([]);
 
@@ -20,7 +19,7 @@ export const useWalletStore = defineStore("wallet", () => {
   });
 
   const currentBalance = computed(() => {
-    return totalCredit.value - totalDebit.value
+    return totalCredit.value - totalDebit.value;
   });
 
   // Functions
@@ -35,7 +34,6 @@ export const useWalletStore = defineStore("wallet", () => {
   };
 
   return {
-    wallet,
     credit,
     debit,
     totalCredit,

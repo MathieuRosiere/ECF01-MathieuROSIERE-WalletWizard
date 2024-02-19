@@ -22,7 +22,7 @@ h1 {
 
 nav {
   bottom: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .router {
@@ -30,12 +30,16 @@ nav {
   text-decoration: none;
 }
 
+.router-link-active {
+  color: #e32525;
+}
+
 .router-view {
   height: 70%;
   width: 70%;
   border: 1px solid black;
   border-radius: 35px 0px 35px 0px;
-  background-color:#931f1f;
+  background-color: #931f1f;
   padding: 10px;
 }
 </style>

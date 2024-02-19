@@ -10,11 +10,13 @@ const { credit, debit } = storeToRefs(store);
 onMounted(() => {
   const creditInStorage = JSON.parse(localStorage.getItem("creditTab"));
   if (creditInStorage != null) {
-  credit.value = creditInStorage;}
+    credit.value = creditInStorage;
+  }
 
   const debitInStorage = JSON.parse(localStorage.getItem("debitTab"));
   if (debitInStorage != null) {
-  debit.value = debitInStorage;}
+    debit.value = debitInStorage;
+  }
 });
 
 const displayMode = ref<string>("");
@@ -54,8 +56,9 @@ const displayMode = ref<string>("");
 <style scoped>
 .display {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   align-items: center;
+  overflow: auto;
 }
 
 p {
@@ -67,8 +70,4 @@ p {
   font-weight: bold;
   padding-left: 15px;
 }
-
-
-
-
 </style>
