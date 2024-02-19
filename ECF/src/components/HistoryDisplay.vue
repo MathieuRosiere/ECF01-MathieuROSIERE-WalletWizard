@@ -2,22 +2,9 @@
 import { useWalletStore } from "@/stores/wallet";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import { onMounted } from "vue";
 
 const store = useWalletStore();
 const { credit, debit } = storeToRefs(store);
-
-onMounted(() => {
-  const creditInStorage = JSON.parse(localStorage.getItem("creditTab"));
-  if (creditInStorage != null) {
-    credit.value = creditInStorage;
-  }
-
-  const debitInStorage = JSON.parse(localStorage.getItem("debitTab"));
-  if (debitInStorage != null) {
-    debit.value = debitInStorage;
-  }
-});
 
 const displayMode = ref<string>("");
 </script>

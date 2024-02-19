@@ -1,40 +1,37 @@
-# ecf
+# ECF FRONT
 
-This template should help get you started developing with Vue 3 in Vite.
+## Launch App
 
-## Recommended IDE Setup
+- Ouvrir le terminal. Vérifier que le path est correct, sinon se déplacer des les fichiers avec la commande ```cd```.
+- Une fois au bon endroit, toujours dans le terminal, rentrer la commande ```npm i``` pour installer les différents packages.
+- Quand l'installation est terminée, on execute un ```npm run dev``` pour lancer l'application. il n'y a plus qu'a cliquer sur le lien qui apparaît dans le terminal.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Logic
 
-## Type Support for `.vue` Imports in TS
+### Bases
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Cette application permet de gérer un portefeuille.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- L'application s'ouvre sur une page d'accueil qui indique la balance actuelle du portefeuille.
+- On peut naviguer dans l'application par un routeur, celui ci permet de se diriger soit vers la page d'accueil, les formulaires ou un historique des opérations effectuées par l'utilisateur. 
+- L'intéraction avec l'app se fait grâce à des formulaires, dans lesquels on peut indiquer des retraits ou des dépôts.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+---
 
-## Customize configuration
+### Store
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- La majeure partie de la logique de l'application se trouve dans le store.
+- On y trouve :
+1. Les constantes qui sotckent les objets issus des formulaires.
+2. Des computed qui gèrent toute la partie mathématiques de l'application. 
+3. Les fonctions déclenchées par les submits des formulaires.
 
-## Project Setup
+- Les data sont égalament stockées dans la local storage du navigateur.
 
-```sh
-npm install
-```
+---
 
-### Compile and Hot-Reload for Development
+### Display
 
-```sh
-npm run dev
-```
+- L'affichage de l'application est géré par des selects qui en fonction de leur value vont trigger des rendus conditionnels. ```v-if```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+---

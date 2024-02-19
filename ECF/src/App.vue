@@ -1,5 +1,23 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+import { onMounted } from "vue";
+import { useWalletStore } from "./stores/wallet";
+import { storeToRefs } from "pinia";
+
+const store = useWalletStore();
+const { credit, debit } = storeToRefs(store);
+
+onMounted(() => {
+  const creditInStorage = JSON.parse(localStorage.getItem("creditTab"));
+  if (creditInStorage != null) {
+    credit.value = creditInStorage;
+  }
+
+  const debitInStorage = JSON.parse(localStorage.getItem("debitTab"));
+  if (debitInStorage != null) {
+    debit.value = debitInStorage;
+  }
+});
 </script>
 
 <template>
